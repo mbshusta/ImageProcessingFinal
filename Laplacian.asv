@@ -1,0 +1,22 @@
+disp('Give me a .jpg or a .png file to Laplacian edge detection to')
+input('Press enter key to proceed')
+disp('-------------------------------------------------------------------------------------------------------------')
+
+img = uigetfile({'*.jpg';'*.png'});
+img = imread(img);
+% gets the user's file and reads them into matlab
+
+disp('Give me an alpha for the laplacian (default = 0.2) [0-1]')
+disp('Alpha changes the shape of the laplacian mask')
+sd = input('');
+disp('-------------------------------------------------------------------------------------------------------------')
+% asks for the users density of choice
+
+while sd < 0 || sd > 1
+    disp('Give me an alpha for the laplacian (default = 0.2) [0-1]')
+    disp('Alpha changes the shape of the laplacian mask')
+    sd = input('');
+    disp('-------------------------------------------------------------------------------------------------------------')
+end
+% checks to make sure the alpha fits the parameters
+

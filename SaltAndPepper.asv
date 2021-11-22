@@ -1,0 +1,30 @@
+disp('Give me a .jpg or a .png file to add and remove salt and pepper noise from')
+input('Press enter key to proceed')
+disp('-------------------------------------------------------------------------------------------------------------')
+
+img = uigetfile({'*.jpg';'*.png'});
+img = imread(img);
+% gets the user's file and reads them into matlab
+
+disp('Give me a percentage of pixels to be affected by salt and pepper noise [0-10%]')
+disp('This value controls the percentage of pixels affected by salt and pepper noise')
+density = input('');
+disp('-------------------------------------------------------------------------------------------------------------')
+% asks for the users density of choice
+
+while density < 0 || density > 10
+    disp('Error --- Value must be between 0 and 10')
+    disp('Give me a radius value for sharpening [0-10]')
+    disp('This value controls the size of the region around the edge pixels affected by sharpening')
+    disp('A larger value sharpens a larger around the edges, a smaller value sharpens a smaller region')
+    density = input('');
+    disp('-------------------------------------------------------------------------------------------------------------')
+end
+% checks to make sure the radius fits the parameters
+
+density = density/100;
+% converts denisty to percent, more digestable by the function
+
+imgsnp = imnoise(img, 'salt & pepper', density);
+filtimgsnp = medfilt2
+
